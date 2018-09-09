@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Great Number Game</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: darkturquoise;
+            
+        }
+        .container{
+            /* outline: dotted red 1px; */
+            width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        .game_box{
+            border: solid black 3px;
+            background-color: goldenrod;
+            padding: 10px;
+            width: 400px;
+            height: 300px;
+            text-align: center;
+            margin: auto;
+        }
+        input{
+            margin-top: 20px;
+        }
+        .win{
+            background-color: rgb(79, 184, 79);
+        }
+        .lose{
+            background-color: rgb(235, 92, 92);
+        }
+        input.game_box{
+            margin-top: 50px;
+        }
+        div.result{
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Great Number Game!</h1>
+        <h2>I am thinking of a number between 1 and 100.</h2>
+        <h2>Take a guess!</h2>
+
+        <div class="game_box {{ clash|safe }}">
+            <div class='result'>
+                <h3>{{ result }}</h3>
+                <h4>{{ winNum }}</h4>
+            </div>
+            <form action="/result" method="POST">
+                <input type="text" name="pick" value="0">
+                <br>
+                {{ z|safe }}
+            </form>
+            <form action="/reset" method="POST">
+                {{ x|safe }}
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
