@@ -3,7 +3,7 @@ import random
 app = Flask(__name__)
 app.secret_key='Spaghetti'
 goButton = "<input class='btn-primary btn-lg' type='submit' value='Go >>>'>"
-win = False
+
 
 # start routes
 @app.route('/')
@@ -23,7 +23,6 @@ def runNumber():
     if session['cpuNum'] < int(request.form['pick']):
         return render_template('index.html', result='Too High, Nice Try!', clash='lose', z=goButton)
     if session['cpuNum'] == int(request.form['pick']):
-        win = True
         return render_template('index.html', result='You Win, Big Grin!', winNum='The Number is '+str(session['cpuNum']), clash='win', x=resession)
 
 @app.route('/reset', methods=['POST'])
